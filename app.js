@@ -4,7 +4,8 @@ const app = express();
 // aqui esta chamando o <template> é um mecanismo para encapsular
 //  um conteúdo do lado do cliente que não é renderizado quando a página é carregada
 app.set('view engine', 'ejs'); 
-
+app.use(express.urlencoded({extended:false}));
+app.use(express.json());
 
 app.use('/', require('./router'));
 

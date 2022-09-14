@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <link href="styles.css" rel="stylesheet">
     <title>CRUD</title>
 </head>
 <body>
@@ -19,37 +18,33 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="/">Inicio</a>
-              </li>                            
+              </li>                               
             </ul>            
           </div>
         </div>
       </nav>
-      <% if (usuario) { %>
-      <div class="container mt-4">          
-          <div class="card border-secondary">  
-                <div class="card-header">Editar Registro</div>
+      <div class="container mt-4">     
+            <div class="card border-secondary">  
+                <div class="card-header">Nuevo Registro</div>
                 <div class="card-body">
-                    <form action="/update" method="POST">
-                         <input id="id" name="id" value="<%= usuario.id %>" hidden>
+                    <form action="/save" method="POST">
                         <div class="mb-3">
-                          <label for="usuario" class="form-label">Usuario</label>
-                          <input type="text" class="form-control" id="usuario" name="usuario" tabindex="1" value="<%= usuario.usuario  %>">                        
+                        <label for="usuario" class="form-label">Usuario</label>
+                        <input type="text" class="form-control" id="usuario" name="usuario" tabindex="1">
                         </div>   
                         <div class="mb-3">
-                          <h3><%= usuario.funcao %></h3>
-                          <label for="funcao" class="form-label">funcao</label>
-                          <select id="funcao" name="funcao" class="form-select" tabindex="2">
-                            <option <%= usuario.funcao=='admin' ? "selected" : '' %> value="admin">Admin</option>
-                            <option <%= usuario.funcao=='data entry' ? "selected" : '' %> value="dataentry">Data entry</option>                            
-                          </select>
-                        </div>                                                              
+                        <label for="usuario" class="form-label">funcao</label>
+                        <select id="funcao" name="funcao" class="form-select" aria-label="Default select example" tabindex="2">
+                            <option value="admin" selected>Admin</option>
+                            <option value="data entry">Data Entry</option>                    
+                        </select>
+                        </div>                                   
                         <button type="submit" class="btn btn-primary" tabindex="5">Guardar</button>
                         <a href="/" class="btn btn-secondary">Cancelar</a>
-                    </form>      
+                    </form>
                 </div>
-            </div>     
+            </div>        
       </div>
-      <% } %>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 </body>
 </html>
