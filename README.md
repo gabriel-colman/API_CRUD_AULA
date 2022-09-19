@@ -3,10 +3,10 @@ Material destinado para aula de LP4
 
 ## Comandos
 
-###Criar projeto 
+### Criar projeto 
 npm init -y
 
-###instalar express
+### instalar express
 npm install express ejs pg nodemon
 
 (criar arquivo app.js e mundar no "main" do packege.json o index para app)
