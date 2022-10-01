@@ -1,8 +1,8 @@
 const Client = require('pg').Client;
 
 const conexao = new Client({
-    usuario: "postgres", 
-    password: "415232", 
+    user: "postgres", 
+    password: "ifms", 
     host: "localhost", 
     port: 5432,
     database: "API_CRUD"

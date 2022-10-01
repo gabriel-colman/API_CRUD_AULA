@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
         if(error){
             throw error;
         } else {                       
-            res.render('index.ejs', {results:results});            
+            res.render('index', {results:results.rows});            
         }   
     })
 })
@@ -23,18 +23,18 @@ router.get('/create', (req,res)=>{
 
 router.get('/edit/:id', (req,res)=>{    
     const id = req.params.id;
-    conexao.query('SELECT * FROM crud WHERE id=?',[id] , (error, results) => {
+    conexao.query('SELECT * FROM crud WHERE id= $1',[id] , (error, results) => {
         if (error) {
             throw error;
         }else{            
-            res.render('edit.ejs', {usuario:results[0]});            
+            res.render('edit', {usuario:results.rows[0]});            
         }        
     });
 });
 
 router.get('/delete/:id', (req, res) => {
     const id = req.params.id;
-    conexao.query('DELETE FROM crud WHERE id = ?',[id], (error, results)=>{
+    conexao.query('DELETE FROM crud WHERE id = $1',[id], (error, results)=>{
         if(error){
             console.log(error);
         }else{           
