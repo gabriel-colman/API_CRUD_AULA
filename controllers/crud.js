@@ -23,7 +23,7 @@ exports.update = (req, res)=>{
     const usuario = req.body.usuario;
     const funcao = req.body.funcao;
     conexao.query(
-        'UPDATE crud SET usuario=$1, funcao=$2, id=$4 WHERE id=$4',
+        'UPDATE crud SET usuario=$1, funcao=$2, id=$3 WHERE id=$3',
         [usuario, funcao, id],
         (error, results) => {
         if(error){
